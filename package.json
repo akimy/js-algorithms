@@ -1,0 +1,24 @@
+{
+  "name": "js-sorting",
+  "version": "1.0.0",
+  "description": "Sorting algorithms implementation via javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akimy/js-sorting.git"
+  },
+  "author": "No game no life",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akimy/js-sorting/issues"
+  },
+  "homepage": "https://github.com/akimy/js-sorting#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.10.0"
+  }
+}
