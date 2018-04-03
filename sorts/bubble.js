@@ -1,4 +1,11 @@
-function bubbleSort(arr) {
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+const bubbleSort = (arr) => {
   let sorted = false;
   while (!sorted) {
     sorted = true;
@@ -9,7 +16,17 @@ function bubbleSort(arr) {
       }
     }
   }
-  return arr;
-}
 
-bubbleSort([-10, 30, 20, 35, 65, 40, 60, -35, 55, -40, -45, 5, 15, 25, 50, 70, -70, 0]);
+  console.log('\x1b[32m', 'Succesfully sorted');
+  return arr;
+};
+
+rl.question(
+  'Insert the data for bubble sorting (100, 50, 0, 1, 205, 400, 82, 300, 1000, 3021, 5, 15, 255) ',
+  (answer) => {
+    answer = answer === '' ? '100, 50, 0, 1, 205, 400, 82, 300, 1000, 3021, 5, 15, 255' : answer;
+    const arr = answer.split(',').map(el => parseInt(el, 10));
+    console.log('\x1b[0m', bubbleSort(arr), '\n');
+    rl.close();
+  },
+);

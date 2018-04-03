@@ -15,7 +15,6 @@ module.exports = {
     "no-console": "off",
     "no-use-before-define": "off",
     "no-shadow": "off",
-    "no-plusplus": "off",
     "no-restricted-syntax": "off",
     "no-continue": "off",
     "guard-for-in": "off"

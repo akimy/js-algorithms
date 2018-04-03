@@ -1,4 +1,12 @@
-function listToBuckets(arr, base, iteration) {
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+
+const listToBuckets = (arr, base, iteration) => {
   const buckets = Array.from({ length: base }).map(() => []);
 
   for (const number of arr) {
@@ -7,9 +15,9 @@ function listToBuckets(arr, base, iteration) {
   }
 
   return buckets;
-}
+};
 
-function bucketsToList(buckets) {
+const bucketsToList = (buckets) => {
   const numbers = [];
 
   for (const bucket of buckets) {
@@ -19,9 +27,9 @@ function bucketsToList(buckets) {
   }
 
   return numbers;
-}
+};
 
-function radixSort(arr, base = 10) {
+const radixSort = (arr, base = 10) => {
   const max = Math.max(...arr);
   let iteration = 0;
 
@@ -31,9 +39,9 @@ function radixSort(arr, base = 10) {
   }
 
   return arr;
-}
+};
 
-function radixSortWithSignedNumbers(arr) {
+const radixSortWithSignedNumbers = (arr) => {
   const positiveInts = [];
   const negativeInts = [];
   const zeroes = [];
@@ -49,9 +57,17 @@ function radixSortWithSignedNumbers(arr) {
 
   const sortedNegative = radixSort(negativeInts).map(el => -el).reverse();
   const sortedPositive = radixSort(positiveInts);
+
+  console.log('\x1b[32m', 'Succesfully sorted');
   return sortedNegative.concat(zeroes).concat(sortedPositive);
-}
+};
 
-radixSort([100, 50, 205, 3021, 5, 15, 255]);
-radixSortWithSignedNumbers([-10, 3440, 20, 35, 0, 0, -115, 365, 40, 60, -35, 1255, -40, -45, 5, 15, 25, 50, 70, -70, 0]);
-
+rl.question(
+  'Insert the data for radix sorting (100, 50, 0, 1, 205, 400, 82, 300, 1000, 3021, 5, 15, 255) ',
+  (answer) => {
+    answer = answer === '' ? '100, 50, 0, 1, 205, 400, 82, 300, 1000, 3021, 5, 15, 255' : answer;
+    const arr = answer.split(',').map(el => parseInt(el, 10));
+    console.log('\x1b[0m', radixSortWithSignedNumbers(arr), '\n');
+    rl.close();
+  },
+);
