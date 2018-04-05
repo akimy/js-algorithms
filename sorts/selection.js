@@ -12,7 +12,7 @@ const selectionSort = (arr) => {
 
   while (arr.length !== 0) {
     maximal = { value: arr[0], index: 0 };
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i += 1) {
       if (arr[i] > maximal.value) {
         maximal.value = arr[i];
         maximal.index = i;
