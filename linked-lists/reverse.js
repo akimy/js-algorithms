@@ -12,14 +12,30 @@ const list = {
   },
 };
 
-const reverse = (list, tail) => {
-  if (list.next === null) {
-    return { value: list.value, next: tail };
+const printLinkedList = (list) => {
+  const arr = [];
+  while (list.next !== null) {
+    arr.push(list.value);
+    list = list.next;
   }
-  const newTail = { value: list.value, next: tail };
-  return reverse(list.next, newTail);
+  arr.push(list.value);
+  return arr.join(' ');
 };
 
-const reversedList = reverse(list, null);
+console.log(printLinkedList(list));
 
-console.log(JSON.stringify(reversedList, '', 2));
+const reverseLinkedList = (list) => {
+  const iterator = (list, tail) => {
+    const newTail = { value: list.value, next: tail };
+    if (list.next === null) {
+      return newTail;
+    }
+
+    return iterator(list.next, newTail);
+  };
+
+  return iterator(list, null);
+};
+const reversedList = reverseLinkedList(list, null);
+
+console.log(printLinkedList(reversedList));
